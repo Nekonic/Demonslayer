@@ -1,0 +1,4 @@
+name: Demonslayer
+version: '${project.version}'
+main: demonslayer.demonslayer.Demonslayer
+api-version: 1.19

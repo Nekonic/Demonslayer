@@ -20,5 +20,6 @@ public final class Demonslayer extends JavaPlugin {
     public void Event(){
         PluginManager pm = getServer().getPluginManager();
         pm.registerEvents(new JoinEvent(), this);
+        pm.registerEvents(new battleEvent(), this);
     }
 }

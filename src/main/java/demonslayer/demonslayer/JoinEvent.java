@@ -34,18 +34,4 @@ public class JoinEvent implements Listener {
         Player p = event.getPlayer();
         event.setReason(ChatColor.WHITE+"플레이어 : "+ChatColor.BLUE+p.getName()+ChatColor.WHITE+"\n킥 사유 : "+ChatColor.DARK_RED+event.getReason());
     }
-    @EventHandler
-    public void Interact(PlayerInteractEvent event){
-        Player p = event.getPlayer();
-        Action a = event.getAction();
-        if((a == Action.RIGHT_CLICK_BLOCK||a == Action.RIGHT_CLICK_AIR) && (event.getItem().getType() == Material.STICK)){
-            p.playSound(p.getLocation(), Sound.ENTITY_HORSE_BREATHE, 2.0F, 2.0F);
-            p.setVelocity(p.getLocation().getDirection());
-
-        }
-        if((a == Action.LEFT_CLICK_BLOCK||a == Action.LEFT_CLICK_AIR) && (event.getItem().getType() == Material.DIAMOND_SWORD)){
-            p.playSound(p.getLocation(), Sound.ENTITY_HORSE_BREATHE, 2.0F, 2.0F);
-            p.setVelocity(p.getLocation().getDirection());
-        }
-    }
 }

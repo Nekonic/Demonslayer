@@ -15,19 +15,25 @@ import java.util.HashMap;
 import java.util.UUID;
 
 public class JoinEvent implements Listener {
-    int count = 1;
-    HashMap<UUID,Integer> map = new HashMap<UUID,Integer>();
+    private Map<Player, Integer> joinOrderMap;
+
+    @Override
+    public void onEnable() {
+        getServer().getPluginManager().registerEvents(this, this);
+        joinOrderMap = new HashMap<>();
+    }
+
     @EventHandler
     public  void Join(PlayerJoinEvent event){
         Player p = event.getPlayer();
-        UUID uuid = event.getPlayer().getUniqueId();
-        if(map.containsKey(uuid)) {
-            map.put(uuid, map.get(uuid) + 1);
-        } else {
-            map.put(uuid, 1);
+
+        if (!joinOrderMap.containsKey(p)) {
+            int count = joinOrderMap.size()+1;
+            joinOrderMap.put(p,count);
         }
-        int count = map.get(uuid);
-        event.setJoinMessage(ChatColor.BLUE+p.getName()+ChatColor.LIGHT_PURPLE + "님이 서버에 접속하셨습니다.\n"+ChatColor.BLUE+p.getName()+ChatColor.WHITE +"님은 "+ChatColor.DARK_RED+count+ChatColor.WHITE+"번째 플레이어 입니다!"  );
+
+        String welcomeMessage = ChatColor.BLUE+p.getName()+ChatColor.LIGHT_PURPLE + "님이 서버에 접속하셨습니다.\n"+ChatColor.BLUE+p.getName()+ChatColor.WHITE +"님은 "+ChatColor.DARK_RED+count+ChatColor.WHITE+"번째 플레이어 입니다!";
+        Bukkit.getLogger().info(welcomeMessage);
     }
     @EventHandler
     public  void Kick(PlayerKickEvent event){

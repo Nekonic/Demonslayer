@@ -31,7 +31,7 @@ public class battleEvent extends JavaPlugin implements Listener {
         if (damager instanceof Player) {
             Player player = (Player) damager;
             if (player.getInventory().getItemInMainHand().getType() == Material.DIAMOND_SWORD) {
-                
+
             }
         }
     }

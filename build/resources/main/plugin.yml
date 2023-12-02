@@ -1,4 +1,4 @@
 name: Demonslayer
-version: '${version}'
+version: '1.0-SNAPSHOT'
 main: nekonic.Demonslayer
 api-version: '1.20'

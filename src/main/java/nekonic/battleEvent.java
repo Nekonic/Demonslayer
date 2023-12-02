@@ -1,4 +1,4 @@
-package demonslayer.demonslayer;
+package nekonic;
 
 import org.bukkit.Material;
 import org.bukkit.Sound;
@@ -7,13 +7,11 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
-import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
-import org.bukkit.plugin.java.JavaPlugin;
-
-public class battleEvent extends JavaPlugin implements Listener {
+import org.bukkit.event.entity.EntityDamageByEntityEvent;
+public class battleEvent implements Listener {
     @EventHandler
-    public void Interact(PlayerInteractEvent event){
+    public void rush(PlayerInteractEvent event){
         Player p = event.getPlayer();
         Action a = event.getAction();
         if((a == Action.RIGHT_CLICK_BLOCK||a == Action.RIGHT_CLICK_AIR) && (event.getItem().getType() == Material.STICK)){
@@ -31,7 +29,7 @@ public class battleEvent extends JavaPlugin implements Listener {
         if (damager instanceof Player) {
             Player player = (Player) damager;
             if (player.getInventory().getItemInMainHand().getType() == Material.DIAMOND_SWORD) {
-
+                
             }
         }
     }

@@ -32,9 +32,9 @@ public class battleEvent implements Listener {
             mizu(p);
         }if ((a == Action.RIGHT_CLICK_BLOCK || a == Action.RIGHT_CLICK_AIR) && (event.getItem().getType() == Material.STICK)) {
             Location targetBlock = p.getTargetBlockExact(100).getLocation(); // 플레이어가 바라보는 블럭의 위치 가져오기 (최대 100 블럭)
-            int numberOfFireballs = 10; // 생성할 화염구 개수
+            int numberOfFireballs = 20; // 생성할 화염구 개수
             int minDistance = 1; // 최소 거리
-            int maxDistance = 10; // 최대 거리
+            int maxDistance = 15; // 최대 거리
 
             Random random = new Random();
             // 파티클로 범위 표시
@@ -48,11 +48,13 @@ public class battleEvent implements Listener {
                 double randomX = randomDistance * Math.cos(randomAngle);
                 double randomZ = randomDistance * Math.sin(randomAngle);
 
-                Location spawnLocation = targetBlock.clone().add(randomX, 20+random.nextDouble(10), randomZ); // 무작위 위치 설정 (Y축은 조정 가능)
+                Location spawnLocation = targetBlock.clone().add(randomX, 20+random.nextDouble(15), randomZ); // 무작위 위치 설정 (Y축은 조정 가능)
 
                 // 화염구 생성 및 설정
                 Fireball fireball = p.getWorld().spawn(spawnLocation, Fireball.class);
-                fireball.setDirection(new Vector(0, -1, 0)); // 화염구 이동 방향
+                fireball.setIsIncendiary(false); // 폭발 시 불붙지 않도록 설정
+                fireball.setYield(5.0F); // 폭발의 위력 설정 (기본값은 1.0F)
+                fireball.setDirection(new Vector(0, -1, 0)); // 화염구 이동 방향 설정
                 fireball.setShooter(null); // 화염구 발사자
             }
         }

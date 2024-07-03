@@ -18,10 +18,10 @@ repositories {
 }
 
 dependencies {
-    compileOnly "io.papermc.paper:paper-api:1.20.2-R0.1-SNAPSHOT"
+    compileOnly "io.papermc.paper:paper-api:1.21-R0.1-SNAPSHOT"
 }
 
-def targetJavaVersion = 17
+def targetJavaVersion = 22
 java {
     def javaVersion = JavaVersion.toVersion(targetJavaVersion)
     sourceCompatibility = javaVersion
@@ -48,7 +48,7 @@ processResources {
 
 jar {
     archiveFileName = 'Demonslayer.jar'
-    destinationDirectory = file("C:\\server\\plugins")
+    destinationDirectory = file("D:\\1server\\plugins")
 }
 
 tasks.withType(JavaCompile){

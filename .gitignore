@@ -1,0 +1,9 @@
+*.log
+*.class
+*.iml
+.classpath
+.project
+.settings/org.eclipse.jdt.core.prefs
+.idea/
+Build/
+.gradle/

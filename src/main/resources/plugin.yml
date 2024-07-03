@@ -1,4 +1,4 @@
 name: Demonslayer
-version: '${project.version}'
-main: demonslayer.demonslayer.Demonslayer
-api-version: 1.19
+version: '${version}'
+main: nekonic.Demonslayer
+api-version: '1.20'

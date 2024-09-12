@@ -73,8 +73,8 @@ public class battleEvent implements Listener {
         if (p.getInventory().getItemInMainHand().getType() == Material.DIAMOND_SWORD) {
             p.setVelocity(p.getLocation().getDirection());
             p.playSound(p.getLocation(), Sound.AMBIENT_UNDERWATER_EXIT, 2.0F, 2.0F);
-            p.spawnParticle(Particle.WATER_WAKE, p.getLocation(), 50, 4, 3, 4);
-            p.spawnParticle(Particle.WATER_BUBBLE, p.getLocation(), 10, 1, 1, 1);
+            p.spawnParticle(Particle.DRIPPING_WATER, p.getLocation(), 50, 4, 3, 4);
+            p.spawnParticle(Particle.BUBBLE, p.getLocation(), 10, 1, 1, 1);
         }
     }
     private void drawCircle(Location targetBlock, double radius, int duration) {
